@@ -1,0 +1,93 @@
+
+{
+  "name": "subscriptions",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["userId", "tier", "status"],
+        "properties": {
+          "userId": {
+            "bsonType": "string",
+            "description": "User ID associated with subscription"
+          },
+          "tier": {
+            "bsonType": "string",
+            "enum": ["free", "pro", "enterprise"],
+            "description": "Subscription tier level"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["active", "cancelled", "expired", "trial"],
+            "description": "Current subscription status"
+          },
+          "stripeCustomerId": {
+            "bsonType": "string",
+            "description": "Stripe customer ID"
+          },
+          "stripeSubscriptionId": {
+            "bsonType": "string",
+            "description": "Stripe subscription ID"
+          },
+          "maxTrackedAssets": {
+            "bsonType": "int",
+            "description": "Maximum number of assets user can track"
+          },
+          "hasRealTimeAlerts": {
+            "bsonType": "bool",
+            "description": "Whether user has real-time alert access"
+          },
+          "hasAdvancedAnalysis": {
+            "bsonType": "bool",
+            "description": "Whether user has advanced AI analysis"
+          },
+          "hasTelegramNotifications": {
+            "bsonType": "bool",
+            "description": "Whether user has Telegram notification access"
+          },
+          "monthlyPrice": {
+            "bsonType": "number",
+            "description": "Monthly subscription price"
+          },
+          "billingCycle": {
+            "bsonType": "string",
+            "enum": ["monthly", "yearly"],
+            "description": "Billing cycle frequency"
+          },
+          "trialEndsAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "ISO 8601 datetime string (UTC): YYYY-MM-DDTHH:mm:ss.sssZ"
+          },
+          "currentPeriodStart": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "ISO 8601 datetime string (UTC): YYYY-MM-DDTHH:mm:ss.sssZ"
+          },
+          "currentPeriodEnd": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "ISO 8601 datetime string (UTC): YYYY-MM-DDTHH:mm:ss.sssZ"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Creator of the subscription"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "ISO 8601 datetime string (UTC): YYYY-MM-DDTHH:mm:ss.sssZ"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "ISO 8601 datetime string (UTC): YYYY-MM-DDTHH:mm:ss.sssZ"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}
