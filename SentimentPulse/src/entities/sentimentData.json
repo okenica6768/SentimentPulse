@@ -1,0 +1,77 @@
+
+{
+  "name": "sentimentData",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["assetSymbol", "source", "sentimentScore", "content"],
+        "properties": {
+          "assetSymbol": {
+            "bsonType": "string",
+            "description": "Asset symbol this sentiment relates to"
+          },
+          "source": {
+            "bsonType": "string",
+            "enum": ["news", "twitter", "reddit", "telegram"],
+            "description": "Source of sentiment data"
+          },
+          "sentimentScore": {
+            "bsonType": "number",
+            "description": "Sentiment score (-1 to 1)"
+          },
+          "content": {
+            "bsonType": "string",
+            "description": "Original content analyzed"
+          },
+          "headline": {
+            "bsonType": "string",
+            "description": "Headline or title of content"
+          },
+          "url": {
+            "bsonType": "string",
+            "description": "Source URL if available"
+          },
+          "volume": {
+            "bsonType": "int",
+            "description": "Volume of mentions/engagement"
+          },
+          "intensity": {
+            "bsonType": "string",
+            "enum": ["low", "medium", "high"],
+            "description": "Sentiment intensity level"
+          },
+          "keywords": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "string"
+            },
+            "description": "Key terms extracted from content"
+          },
+          "publishedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "ISO 8601 datetime string (UTC): YYYY-MM-DDTHH:mm:ss.sssZ"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Creator of the sentiment data"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "ISO 8601 datetime string (UTC): YYYY-MM-DDTHH:mm:ss.sssZ"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "ISO 8601 datetime string (UTC): YYYY-MM-DDTHH:mm:ss.sssZ"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}
